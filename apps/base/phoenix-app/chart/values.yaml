@@ -1,0 +1,32 @@
+replicaCount: 2
+
+image:
+  repository: jaydeepv454/project-phoenix
+  tag: "1.1"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+resources:
+  limits:
+    cpu: 250m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+config:
+  DOCKER_RESTART_POLICY: "no"
+  DOCKER_WEB_HEALTHCHECK_TEST: "/bin/true"
+  DOCKER_WEB_PORT_FORWARD: "8000"
+  DOCKER_WEB_VOLUME: ".:/app"
+  MIX_ENV: "dev"
+  NODE_ENV: "development"
+  URL_SCHEME: "http"
+  URL_HOST: "localhost"
+  URL_PORT: "8000"
+
+secretRef: phoenix-secret

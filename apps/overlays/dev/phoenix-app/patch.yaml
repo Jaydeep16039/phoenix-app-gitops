@@ -1,0 +1,8 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: phoenix-app
+  namespace: phoenix
+spec:
+  values:
+    replicaCount: 3
