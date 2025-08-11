@@ -11,5 +11,5 @@ spec:
     kind: GitRepository
     name: flux-system
   # validation: client
-  dependsOn:
-    - name: flux-system
+  # dependsOn:
+  #   - name: flux-system
