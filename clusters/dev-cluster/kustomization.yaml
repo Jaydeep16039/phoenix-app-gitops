@@ -12,6 +12,5 @@ resources:
   - ../../infrastructure/helm-repos/prometheus-repo.yaml
 
   - ../../secrets
-  # - ../../notifications/slack
 
   - ../../apps/overlays/dev/phoenix-app
