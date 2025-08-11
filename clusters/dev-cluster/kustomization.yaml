@@ -5,7 +5,7 @@ resources:
   - ../../infrastructure/helm-repos/cloudnativepg-repo.yaml
   - ../../infrastructure/helm-repos/prometheus-repo.yaml
   
-  - ../../apps/base/monitoring
+  - ./monitoring-kustomizations.yaml
 
   - ../../secrets
 
