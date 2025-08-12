@@ -6,8 +6,6 @@ resources:
   
   - ./monitoring-kustomizations.yaml
 
-  - ../../secrets
-
   - ../../apps/overlays/dev/hello-world
   - ../../notifications/slack
   - ../../apps/overlays/dev/phoenix-app
@@ -15,3 +13,5 @@ resources:
   # Add new Kustomizations
   - ./cloudnativepg.yaml
   - ./postgres-cluster.yaml
+
+  - ../../secrets
