@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  path: "./apps/base/postgres-cluster/namespace"
+  path: "./apps/base/postgres-cluster/"
   prune: true
   sourceRef:
     kind: GitRepository
