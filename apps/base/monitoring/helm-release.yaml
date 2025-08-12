@@ -19,6 +19,16 @@ spec:
   upgrade:
     crds: Create
   values:
+    # Disable ServiceMonitor & PodMonitor to avoid CRD errors
+    prometheus:
+      serviceMonitor:
+        enabled: false
+      podMonitor:
+        enabled: false
+      prometheusSpec:
+        serviceMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelector: {}
+
     grafana:
       sidecar:
         dashboards:
@@ -29,7 +39,3 @@ spec:
           searchNamespace: ALL
       dashboardsConfigMaps:
         - grafana-dashboard-cloudnativepg
-    prometheus:
-      prometheusSpec:
-        serviceMonitorSelectorNilUsesHelmValues: false
-        serviceMonitorSelector: {}
