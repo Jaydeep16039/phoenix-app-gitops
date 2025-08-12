@@ -34,4 +34,4 @@ spec:
           label: grafana_dashboard
           labelValue: "1"
           searchNamespace: "ALL"
-          folder: "CloudNativePG"
+          # folder: "CloudNativePG"
