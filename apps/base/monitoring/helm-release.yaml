@@ -28,11 +28,12 @@ spec:
         serviceMonitorSelectorNilUsesHelmValues: false
         serviceMonitorSelector: {}
 
-    grafana:
-      sidecar:
-        dashboards:
-          enabled: false
-          label: grafana_dashboard
-          labelValue: "1"
-          searchNamespace: ALL
-          folder: CloudNativePG
+grafana:
+  sidecar:
+    dashboards:
+      enabled: false
+      label: grafana_dashboard
+      labelValue: "1"
+      searchNamespace: "ALL"
+      folder: "CloudNativePG"
+
