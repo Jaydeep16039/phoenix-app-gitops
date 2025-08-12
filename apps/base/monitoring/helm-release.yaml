@@ -19,7 +19,6 @@ spec:
   upgrade:
     crds: Create
   values:
-    # Disable ServiceMonitor & PodMonitor to avoid CRD errors
     prometheus:
       serviceMonitor:
         enabled: false
@@ -30,12 +29,15 @@ spec:
         serviceMonitorSelector: {}
 
     grafana:
+      defaultDashboardsEnabled: true
       sidecar:
         dashboards:
           enabled: true
           label: grafana_dashboard
-          folder: CloudNativePG
           labelValue: "1"
+          folder: CloudNativePG
+          folderAnnotation: grafana_folder
           searchNamespace: ALL
       dashboardsConfigMaps:
-        - grafana-dashboard-cloudnativepg
+        CloudNativePG:
+          - grafana-dashboard-cloudnativepg
