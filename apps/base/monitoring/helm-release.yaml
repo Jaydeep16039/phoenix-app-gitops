@@ -27,13 +27,11 @@ spec:
       prometheusSpec:
         serviceMonitorSelectorNilUsesHelmValues: false
         serviceMonitorSelector: {}
-
-grafana:
-  sidecar:
-    dashboards:
-      enabled: true
-      label: grafana_dashboard
-      labelValue: "1"
-      searchNamespace: "ALL"
-      folder: "CloudNativePG"
-
+    grafana:
+      sidecar:
+        dashboards:
+          enabled: true
+          label: grafana_dashboard
+          labelValue: "1"
+          searchNamespace: "ALL"
+          folder: "CloudNativePG"
