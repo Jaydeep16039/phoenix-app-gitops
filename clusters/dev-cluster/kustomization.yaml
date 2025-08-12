@@ -11,6 +11,7 @@ resources:
   - ../../apps/overlays/dev/phoenix-app
 
   # Add new Kustomizations
+  - ./postgres-namespace.yaml
   - ./cloudnativepg.yaml
   - ./postgres-cluster.yaml
 
