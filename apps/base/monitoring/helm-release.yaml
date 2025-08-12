@@ -4,7 +4,7 @@ metadata:
   name: kube-prometheus-stack
   namespace: monitoring
 spec:
-  interval: 5m
+  interval: 1m
   chart:
     spec:
       chart: kube-prometheus-stack
@@ -29,15 +29,12 @@ spec:
         serviceMonitorSelector: {}
 
     grafana:
-      defaultDashboardsEnabled: true
       sidecar:
         dashboards:
           enabled: true
           label: grafana_dashboard
           labelValue: "1"
-          folder: CloudNativePG
-          folderAnnotation: grafana_folder
           searchNamespace: ALL
+          folder: /var/lib/grafana/dashboards/CloudNativePG
       dashboardsConfigMaps:
-        CloudNativePG:
-          - grafana-dashboard-cloudnativepg
+        - grafana-dashboard-cloudnativepg
