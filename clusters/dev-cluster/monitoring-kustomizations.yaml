@@ -1,12 +1,11 @@
-# clusters/dev-cluster/monitoring-kustomizations.yaml
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: monitoring-stack
   namespace: flux-system
 spec:
-  interval: 5m0s
-  path: ./apps/base/monitoring
+  interval: 1m0s
+  path: ./apps/base/monitoring        # HelmRelease for kube-prometheus-stack lives here
   prune: true
   sourceRef:
     kind: GitRepository
@@ -24,8 +23,8 @@ metadata:
   name: monitoring-config
   namespace: flux-system
 spec:
-  interval: 5m0s
-  path: ./apps/base/monitoring/config
+  interval: 1m0s
+  path: ./apps/base/monitoring/config  # Contains PodMonitor/ServiceMonitor/PrometheusRule
   prune: true
   sourceRef:
     kind: GitRepository
@@ -33,4 +32,4 @@ spec:
   dependsOn:
     - name: monitoring-stack
   wait: true
-  timeout: 10m0s 
+  timeout: 10m0s

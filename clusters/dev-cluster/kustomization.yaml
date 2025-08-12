@@ -1,20 +1,25 @@
-# clusters/dev-cluster/kustomization.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
+  # Helm repositories
   - ../../infrastructure/helm-repos/cloudnativepg-repo.yaml
   - ../../infrastructure/helm-repos/prometheus-repo.yaml
-  
+
+  # Monitoring stack (HelmRelease + configs applied via separate Kustomization CRs)
   - ./monitoring-kustomizations.yaml
 
+  # Secrets
   - ../../secrets
 
+  # Database stack
   - ../../apps/base/cloudnativepg
-  -  ../../apps/base/postgres-cluster
+  - ../../apps/base/postgres-cluster
 
-
+  # Example app
   - ../../apps/overlays/dev/hello-world
 
+  # Notifications
   - ../../notifications/slack
 
+  # Phoenix app
   - ../../apps/overlays/dev/phoenix-app
