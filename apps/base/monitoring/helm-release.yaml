@@ -35,6 +35,4 @@ spec:
           label: grafana_dashboard
           labelValue: "1"
           searchNamespace: ALL
-          folder: /var/lib/grafana/dashboards/CloudNativePG
-      dashboardsConfigMaps:
-        - grafana-dashboard-cloudnativepg
+          folder: CloudNativePG
